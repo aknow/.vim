@@ -1,8 +1,7 @@
 aknow's vimrc
 =============
 
-something refer from vgod's vimrc
-https://github.com/vgod/vimrc
+Something refer from [vgod's vimrc](https://github.com/vgod/vimrc).
 
 MANUALLY INSTALL
 ----------------
@@ -19,7 +18,7 @@ MANUALLY INSTALL
 
 3. Install plug-ins
 
-        Launch `vim`, run `:BundleInstall`
+    Launch `vim`, run `:BundleInstall`
 
 4. (Optional, if you want Command-T) Compile the Command-T plugin
 
@@ -46,12 +45,10 @@ MANUALLY INSTALL ON WINDOWS
 HOW TO USE
 ----------
 
-see the "USEFUL SHORTCUTS" section in vimrc to learn my shortcuts.
+See the "USEFUL SHORTCUTS" section in vimrc to learn the shortcuts.
 
 PLUGINS
 -------
-
-* [Pathogen](http://www.vim.org/scripts/script.php?script_id=2332): Pathogen let us install a plugin as a bundle in ~/.vim/bundle seprately.
 
 * [Nerd Tree](http://www.vim.org/scripts/script.php?script_id=1658): A tree explorer plugin for navigating the filesystem.
 
