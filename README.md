@@ -3,8 +3,10 @@ aknow's vimrc
 
 Something refer from [vgod's vimrc](https://github.com/vgod/vimrc).
 
-MANUALLY INSTALL
-----------------
+Thanks for the inspiring idea.
+
+MANUALLY INSTALL ON UNIX-LIKE
+-----------------------------
 
 1. Check out from github
 
@@ -16,9 +18,9 @@ MANUALLY INSTALL
 
         ./install-vimrc.sh
 
-3. Install plug-ins
+3. Install plugins
 
-    Launch `vim`, run `:BundleInstall`
+    Launch `vim`, run `:BundleInstall`.
 
 4. (Optional, if you want Command-T) Compile the Command-T plugin
 
@@ -29,18 +31,29 @@ MANUALLY INSTALL
 MANUALLY INSTALL ON WINDOWS
 ---------------------------
 
+0. Make sure you could run `git` and `curl` from command line.
+
+    You may refer to [Vundle for Windows](https://github.com/gmarik/vundle/wiki/Vundle-for-Windows).
+
 1. Check out from github
 
         cd C:\Program Files\Vim   (or your installed path to Vim)
         rmdir /s vimfiles         (This deletes your old vim configurations. If you want to keep it, use move instead of rmdir.)
         git clone git://github.com/aknow/.vim.git vimfiles
+        cd vimfiles
         git submodule update --init
 
-2. Install vimrc. Add the following line at the end of C:\Program Files\Vim\vimrc.
+2. Install vimrc. Add the following line at the beginning and the end of C:\Program Files\Vim\vimrc. (Yes, just twice.)
 
         source $VIM/vimfiles/vimrc
 
-3. Install plug-ins ??
+3. Install plugins
+
+    Run in the command prompt:
+
+        gvim _vimrc
+
+    In gvim, run `:BundleInstall`.
 
 HOW TO USE
 ----------
@@ -128,22 +141,7 @@ Other good references
 
 * http://amix.dk/vim/vimrc.html
 * http://spf13.com/post/perfect-vimrc-vim-config-file
-
-
-Vim Visual Cheat Sheet
-----------------------
-
-Some cheat sheet from vgod.
-
-![vgod's Visual Cheat Sheet](http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png "My Vim Visual Cheat Sheet")
-
-* [Vim Visual Cheat Sheet (PNG)](http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png)
-* [Vim Visual Cheat Sheet (PDF)](http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.pdf)
-* [Vim入門圖解 Chinese Ver. (PNG)](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)
-* [Vim入門圖解 Chinese Ver. (PDF)](http://blog.vgod.tw/wp-content/uploads/2009/12/vgod-vim-cheat-sheet-full.pdf)
-
-These Vim Visual Cheat Sheets are released under [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US).
-
+* [Vim Visual Cheat Sheet from vgod (PDF)](http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.pdf)
 
 License
 -------
