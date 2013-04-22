@@ -31,9 +31,9 @@ Bundle 'kevinw/pyflakes-vim'
 Bundle 'Townk/vim-autoclose'
 Bundle 'Twinside/vim-cuteErrorMarker'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'ervandew/supertab'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+"Bundle 'ervandew/supertab'
+"Bundle 'garbas/vim-snipmate'
+"Bundle 'honza/vim-snippets'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 Bundle 'mattn/zencoding-vim'
@@ -47,6 +47,8 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'vgod/scala-vim-support'
 Bundle 'wincent/Command-T'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'SirVer/ultisnips'
 " vim-scripts repos
 " Bundle 'Smart-Parentheses'
 Bundle 'VisIncr'
@@ -442,4 +444,13 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile c
 
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1
+
+
+" --- YouCompleteMe
+let g:ycm_key_list_previous_completion=['<Up>']
+
+
+" --- Ultisnips
+let g:UltiSnipsExpandTrigger="<s-tab>"
+let g:UltiSnipsListSnippets="<c-s-tab>"
 
