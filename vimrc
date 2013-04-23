@@ -454,3 +454,5 @@ let g:ycm_key_list_previous_completion=['<Up>']
 let g:UltiSnipsExpandTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-s-tab>"
 
+let g:UltiSnipsSnippetsDir="~/.vim/bundle/ultisnips/UltiSnips"
+
