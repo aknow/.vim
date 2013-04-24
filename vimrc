@@ -43,8 +43,6 @@ Bundle 'kevinw/pyflakes-vim'
 Bundle 'Townk/vim-autoclose'
 Bundle 'Twinside/vim-cuteErrorMarker'
 Bundle 'airblade/vim-gitgutter'
-"Bundle 'ervandew/supertab'
-"Bundle 'garbas/vim-snipmate'
 "Bundle 'honza/vim-snippets'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
@@ -407,7 +405,7 @@ endfun
 " --- AutoClose - Inserts matching bracket, paren, brace or quote
 " fixed the arrow key problems caused by AutoClose
 if !has("gui_running")
-   set term=xterm
+   set term=xterm-256color
    imap OA <ESC>ki
    imap OB <ESC>ji
    imap OC <ESC>li
@@ -422,12 +420,6 @@ endif
 
 " --- Command-T
 let g:CommandTMaxHeight = 15
-
-
-" --- SuperTab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
 
 
 " --- EasyMotion
@@ -450,11 +442,6 @@ let g:tagbar_autofocus = 1
 
 " --- PowerLine
 " let g:Powerline_symbols = 'fancy' " require fontpatcher
-"
-
-
-" --- SnipMate
-let g:snipMateAllowMatchingDot = 0
 
 
 " --- coffee-script
@@ -472,6 +459,5 @@ let g:ycm_key_list_previous_completion=['<Up>']
 " --- Ultisnips
 let g:UltiSnipsExpandTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-s-tab>"
-
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/ultisnips/UltiSnips"
 
