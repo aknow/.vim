@@ -1,9 +1,8 @@
 aknow's vimrc
 =============
 
-Something refer from [vgod's vimrc](https://github.com/vgod/vimrc).
+Inspired from [vgod's vimrc](https://github.com/vgod/vimrc).
 
-Thanks for the inspiring idea.
 
 MANUALLY INSTALL ON UNIX-LIKE
 -----------------------------
@@ -11,49 +10,24 @@ MANUALLY INSTALL ON UNIX-LIKE
 1. Check out from github
 
         git clone git://github.com/aknow/.vim.git ~/.vim
-        cd ~/.vim
-        git submodule update --init
 
 2. Install ~/.vimrc and ~/.gvimrc
 
+        cd ~/.vim
         ./install-vimrc.sh
 
 3. Install plugins
 
-    Launch `vim`, run `:BundleInstall`.
+    Launch `vim`
+
+        cd ~/.vim
+        ./install-xml.sh
 
 4. (Optional, if you want Command-T) Compile the Command-T plugin
 
         cd .vim/bundle/command-t/ruby/command-t
         ruby extconf.rb
         make
-
-MANUALLY INSTALL ON WINDOWS
----------------------------
-
-0. Make sure you could run `git` and `curl` from command line.
-
-    You may refer to [Vundle for Windows](https://github.com/gmarik/vundle/wiki/Vundle-for-Windows).
-
-1. Check out from github
-
-        cd C:\Program Files\Vim   (or your installed path to Vim)
-        rmdir /s vimfiles         (This deletes your old vim configurations. If you want to keep it, use move instead of rmdir.)
-        git clone git://github.com/aknow/.vim.git vimfiles
-        cd vimfiles
-        git submodule update --init
-
-2. Install vimrc. Add the following line at the beginning and the end of C:\Program Files\Vim\vimrc. (Yes, just twice.)
-
-        source $VIM/vimfiles/vimrc
-
-3. Install plugins
-
-    Run in the command prompt:
-
-        gvim _vimrc
-
-    In gvim, run `:BundleInstall`.
 
 HOW TO USE
 ----------
@@ -78,12 +52,6 @@ PLUGINS
 * [xmledit](http://www.vim.org/scripts/script.php?script_id=301): XML/HTML tags will be completed automatically.
 
 * [Command-T](https://github.com/wincent/Command-T): open and navigate between files with `cmd-t`.
-
-* [SuperTab](http://www.vim.org/scripts/script.php?script_id=1643): Do all your insert-mode completion with Tab.
-
-* [snipMate](http://www.vim.org/scripts/script.php?script_id=2540): TextMate-style snippets for Vim
-
-  `:help snipMate` to see more info.
 
 * [YankRing](http://www.vim.org/scripts/script.php?script_id=1234): Maintains a history of previous yanks, changes and deletes
 
@@ -133,7 +101,7 @@ Language specific supports
 
 * Latex: Read `:help latex-suite.txt`
 * Restructured Text: `ctrl-u 1~5` inserts Part/Chapter/Section headers
-* HTML, Javascript, CoffeeScript, Python, CSS, C, C++, Java: use `TAB` to do omni-completion.
+* HTML, Javascript, CoffeeScript, Python, CSS, C, C++, Java for autocompletion.
 * HTML/XML: End tags are automatically completed after typing a begin tag. (Typing > twice pushes the end tag to a new line.)
 
 Other good references
@@ -146,5 +114,5 @@ Other good references
 License
 -------
 
-This vimrc project is released under [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US).
+This .vim project is released under [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US).
 
