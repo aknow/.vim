@@ -59,6 +59,8 @@ Bundle 'vgod/scala-vim-support'
 Bundle 'wincent/Command-T'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 " vim-scripts repos
 " Bundle 'Smart-Parentheses'
 Bundle 'VisIncr'
@@ -460,4 +462,11 @@ let g:ycm_key_list_previous_completion=['<Up>']
 let g:UltiSnipsExpandTrigger="<s-tab>"
 let g:UltiSnipsListSnippets="<c-s-tab>"
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/ultisnips/UltiSnips"
+
+
+" --- gist-vim
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+let g:gist_browser_command = 'google-chrome %URL% &'
+let g:gist_clip_command = 'xclip -selection clipboard'
 
