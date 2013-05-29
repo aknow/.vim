@@ -61,6 +61,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'guns/xterm-color-table.vim'
 " vim-scripts repos
 " Bundle 'Smart-Parentheses'
 Bundle 'VisIncr'
@@ -101,7 +102,7 @@ set bs=2		" allow backspacing over everything in insert mode
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
-
+set colorcolumn=80
 
 filetype off          " necessary to make ftdetect work on Linux
 syntax on
@@ -131,7 +132,7 @@ if has("gui_running")	" GUI color and font settings
   highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
 else
 " terminal color settings
-  colors vgod
+  colors aknow
 endif
 
 set clipboard=unnamed	" yank to the system register (*) by default
@@ -455,12 +456,13 @@ let g:gitgutter_enabled = 1
 
 
 " --- YouCompleteMe
-let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion=['<S-TAB>']
 
 
 " --- Ultisnips
-let g:UltiSnipsExpandTrigger="<s-tab>"
-let g:UltiSnipsListSnippets="<c-s-tab>"
+"let g:UltiSnipsExpandTrigger="<s-tab>"
+"let g:UltiSnipsListSnippets="<c-s-tab>"
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/ultisnips/UltiSnips"
 
 
@@ -469,4 +471,3 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
 let g:gist_clip_command = 'xclip -selection clipboard'
-
