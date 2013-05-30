@@ -36,41 +36,48 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
+
+" :: Basic ediingt or moving
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'kevinw/pyflakes-vim'
 Bundle 'Townk/vim-autoclose'
-Bundle 'Twinside/vim-cuteErrorMarker'
-Bundle 'airblade/vim-gitgutter'
-"Bundle 'honza/vim-snippets'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'majutsushi/tagbar'
-Bundle 'mattn/zencoding-vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'mozfr/mozilla.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'sukima/xmledit'
-Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-surround'
-Bundle 'vgod/scala-vim-support'
-Bundle 'wincent/Command-T'
+"Bundle 'mileszs/ack.vim'
+"Bundle 'wincent/Command-T'
+"Bundle 'tomtom/tlib_vim'
+Bundle 'VisIncr'
+Bundle 'indent-motion'
+Bundle 'matchit.zip'
+Bundle 'YankRing.vim'
+
+" :: Coding
+Bundle 'scrooloose/nerdcommenter'
+"Bundle 'honza/vim-snippets'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle 'guns/xterm-color-table.vim'
-" vim-scripts repos
-" Bundle 'Smart-Parentheses'
-Bundle 'VisIncr'
-Bundle 'YankRing.vim'
+"Bundle 'mattn/zencoding-vim'
 Bundle 'autoload_cscope.vim'
-Bundle 'indent-motion'
-Bundle 'javacomplete'
-Bundle 'matchit.zip'
-Bundle 'pythoncomplete'
+
+" :: Decorator
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/nerdtree'
+"Bundle 'Twinside/vim-cuteErrorMarker'
+
+" :: Language support
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'mozfr/mozilla.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'sukima/xmledit'
+
+" :: Others
+"Bundle 'guns/xterm-color-table.vim'  " for color test.
+
+"" vim-scripts repos
 " non github repos
 " ...
 
@@ -340,7 +347,7 @@ endfun
 " Enable omni completion. (Ctrl-X Ctrl-O)
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType c set omnifunc=ccomplete#Complete
