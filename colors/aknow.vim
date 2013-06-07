@@ -38,5 +38,6 @@
     hi CursorLine guibg=#dbdbdb gui=none
     "highlight Pmenu ctermfg=1 ctermbg=4 guibg=grey30
     hi PmenuSel     ctermfg=1 ctermbg=7 guibg=grey30
+    hi SpellBad     ctermbg=9
 "}
 
