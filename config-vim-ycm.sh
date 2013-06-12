@@ -6,5 +6,8 @@ sudo apt-get install build-essential cmake python-dev clang libclang1
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
 
-cd ~
-wget https://raw.github.com/Valloric/YouCompleteMe/master/cpp/ycm/.ycm_extra_conf.py
+# ycm conf
+if [ ! -f ~/.ycm_extra_conf.py ]
+then
+  wget https://raw.github.com/Valloric/YouCompleteMe/master/cpp/ycm/.ycm_extra_conf.py -O ~/.ycm_extra_conf.py
+fi

@@ -75,7 +75,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'sukima/xmledit'
 
 " :: Others
-"Bundle 'guns/xterm-color-table.vim'  " for color test.
+"Bundle 'guns/xterm-color-table.vim'
 
 "" vim-scripts repos
 " non github repos
@@ -319,10 +319,10 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileWritePre *.c,*.cpp,*.h :call <SID>StripTrailingWhitespaces()
-autocmd FileAppendPre *.c,*.cpp,*.h :call <SID>StripTrailingWhitespaces()
-autocmd FilterWritePre *.c,*.cpp,*.h :call <SID>StripTrailingWhitespaces()
-autocmd BufWritePre *.c,*.cpp,*.h :call <SID>StripTrailingWhitespaces()
+autocmd FileWritePre   *.c,*.cpp,*.h,*.js,*.py :call <SID>StripTrailingWhitespaces()
+autocmd FileAppendPre  *.c,*.cpp,*.h,*.js,*.py :call <SID>StripTrailingWhitespaces()
+autocmd FilterWritePre *.c,*.cpp,*.h,*.js,*.py :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre    *.c,*.cpp,*.h,*.js,*.py :call <SID>StripTrailingWhitespaces()
 nmap <F2> :call <SID>StripTrailingWhitespaces()<CR>
 
 
