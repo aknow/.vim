@@ -73,6 +73,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'mozfr/mozilla.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'sukima/xmledit'
+Bundle 'scrooloose/syntastic'
 
 " :: Others
 "Bundle 'guns/xterm-color-table.vim'
@@ -479,3 +480,9 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
 let g:gist_clip_command = 'xclip -selection clipboard'
+
+" --- syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_javascript_checkers = ['jshint']
+nnoremap <silent> <F4> :lwindow<CR>
+
