@@ -58,6 +58,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 "Bundle 'mattn/zencoding-vim'
 Bundle 'autoload_cscope.vim'
+Bundle 'LnL7/vim-tslime'
 
 " :: Decorator
 "Bundle 'Lokaltog/vim-powerline'
@@ -68,7 +69,6 @@ Bundle 'scrooloose/nerdtree'
 "Bundle 'Twinside/vim-cuteErrorMarker'
 
 " :: Language support
-Bundle 'kevinw/pyflakes-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mozfr/mozilla.vim'
 Bundle 'pangloss/vim-javascript'
@@ -482,7 +482,12 @@ let g:gist_browser_command = 'google-chrome %URL% &'
 let g:gist_clip_command = 'xclip -selection clipboard'
 
 " --- syntastic
-let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_always_populate_loc_list = 1
 nnoremap <silent> <F4> :lwindow<CR>
 
+" --- tslime
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars
