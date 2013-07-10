@@ -1,4 +1,5 @@
-# xmledit
+#!/bin/sh
+
 cd ~/.vim/bundle/xmledit/ftplugin/
-ln -s xml.vim html.vim
-ln -s xml.vim xhtml.vim
+ln -sb xml.vim html.vim
+ln -sb xml.vim xhtml.vim
