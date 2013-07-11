@@ -33,59 +33,53 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
-" My Bundles here:
-"
-" original repos on github
-
-" :: Basic ediingt or moving
+" :: Basic edit or moving
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Townk/vim-autoclose'
-Bundle 'tpope/vim-surround'
-"Bundle 'mileszs/ack.vim'
-"Bundle 'wincent/Command-T'
-"Bundle 'tomtom/tlib_vim'
 Bundle 'VisIncr'
+Bundle 'YankRing.vim'
 Bundle 'indent-motion'
 Bundle 'matchit.zip'
-Bundle 'YankRing.vim'
+Bundle 'tpope/vim-surround'
+"Bundle 'mileszs/ack.vim'
+"Bundle 'tomtom/tlib_vim'
+"Bundle 'wincent/Command-T'
 
 " :: Coding
+Bundle 'LnL7/vim-tslime'
+Bundle 'SirVer/ultisnips'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'autoload_cscope.vim'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
 Bundle 'scrooloose/nerdcommenter'
 "Bundle 'honza/vim-snippets'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SirVer/ultisnips'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
 "Bundle 'mattn/zencoding-vim'
-Bundle 'autoload_cscope.vim'
-Bundle 'LnL7/vim-tslime'
 
 " :: Decorator
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/powerline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
+"Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Twinside/vim-cuteErrorMarker'
 
 " :: Language support
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mozfr/mozilla.vim'
 Bundle 'pangloss/vim-javascript'
-Bundle 'sukima/xmledit'
 Bundle 'scrooloose/syntastic'
+Bundle 'sukima/xmledit'
 
 " :: Others
 "Bundle 'guns/xterm-color-table.vim'
 
-"" vim-scripts repos
-" non github repos
-" ...
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
   echo ""
   :BundleInstall
+  :qall
 endif
 " Setting up Vundle - the vim plugin bundler end
 
