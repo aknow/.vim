@@ -9,7 +9,7 @@ ln -sb .vim/.vimrc .
 ln -sb .vim/.gvimrc .
 
 # vundle install
-vim +BundelUpdate +qall
+vim +BundleInstall +BundelUpdate +qall
 
 # html, xhtml syntax
 cd ~/.vim/bundle/xmledit/ftplugin/
