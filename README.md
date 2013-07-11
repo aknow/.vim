@@ -1,22 +1,11 @@
 aknow's .vim
 =============
 
-Manual install
---------------
+Installation
+------------
 
 ```sh
-cd $HOME
-git clone https://github.com/aknow/.vim.git
-cd ~/.vim
-./install-vimrc.sh
-```
-
-Enter Vim and run `:BundleUpdate`.
-After download, type `:qa` to exit Vim.
-
-```sh
-./install-xml.sh
-./config-vim-ycm.sh
+curl https://raw.github.com/aknow/.vim/master/install.sh | sh
 ```
 
 License
