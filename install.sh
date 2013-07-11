@@ -12,9 +12,11 @@ ln -sb .vim/.gvimrc .
 vim +BundleInstall +BundelUpdate +qall
 
 # html, xhtml syntax
-cd ~/.vim/bundle/xmledit/ftplugin/
-ln -sb xml.vim html.vim
-ln -sb xml.vim xhtml.vim
+if [ -d ~/.vim/bundle/xmledit/ftplugin/ ]; then
+  cd ~/.vim/bundle/xmledit/ftplugin/
+  ln -sb xml.vim html.vim
+  ln -sb xml.vim xhtml.vim
+fi
 
 # ycm
 cd ~/.vim
