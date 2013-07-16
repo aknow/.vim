@@ -70,6 +70,7 @@ Bundle 'mozfr/mozilla.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/syntastic'
 Bundle 'sukima/xmledit'
+Bundle 'tell-k/vim-autopep8'
 
 " :: Others
 "Bundle 'guns/xterm-color-table.vim'
@@ -166,6 +167,7 @@ set tm=500
    set shiftwidth=2
 
    au FileType Makefile set noexpandtab
+   autocmd FileType python setlocal shiftwidth=4 tabstop=4
 "}
 
 " status line {
@@ -485,3 +487,7 @@ nnoremap <silent> <F4> :lwindow<CR>
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
+
+" --- autopep8
+let g:autopep8_disable_show_diff=1
+
