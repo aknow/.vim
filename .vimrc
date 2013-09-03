@@ -35,15 +35,17 @@ Bundle 'gmarik/vundle'
 
 " :: Basic edit or moving
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Townk/vim-autoclose'
+"Bundle 'Townk/vim-autoclose'
 Bundle 'VisIncr'
 Bundle 'YankRing.vim'
 Bundle 'indent-motion'
 Bundle 'matchit.zip'
 Bundle 'tpope/vim-surround'
-"Bundle 'mileszs/ack.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-unimpaired'
 "Bundle 'tomtom/tlib_vim'
 "Bundle 'wincent/Command-T'
+Bundle 'Raimondi/delimitMate'
 
 " :: Coding
 Bundle 'LnL7/vim-tslime'
@@ -479,7 +481,7 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 
 " --- syntastic
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_python_checkers=['pyflakes', 'pylint']
 let g:syntastic_always_populate_loc_list = 1
 nnoremap <silent> <F4> :lwindow<CR>
 
