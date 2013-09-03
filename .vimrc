@@ -1,12 +1,11 @@
-
 " VIM setting.
 " Szu-Yu Chen (Aknow)
 
+" Not support for win32
 
-"---------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 " vundle setting.
-"---------------------------------------------------------------------------
-
+"------------------------------------------------------------------------------
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -22,23 +21,20 @@ if !filereadable(vundle_readme)
   let iCanHazVundle=0
 endif
 
-if has("win32")
-  set rtp+=$VIM/vimfiles/bundle/vundle/
-else
-  set rtp+=~/.vim/bundle/vundle/
-endif
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
 
-" :: Basic edit or moving
+" :: Basic editing or moving
 Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'Townk/vim-autoclose'
+" Produce increasing/decreasing columns of numbers, dates, or daynames
 Bundle 'VisIncr'
 Bundle 'YankRing.vim'
 Bundle 'indent-motion'
+" extended % matching for HTML, LaTeX, and many other languages
 Bundle 'matchit.zip'
 Bundle 'tpope/vim-surround'
 Bundle 'mileszs/ack.vim'
@@ -59,11 +55,11 @@ Bundle 'scrooloose/nerdcommenter'
 "Bundle 'mattn/zencoding-vim'
 
 " :: Decorator
-Bundle 'Lokaltog/powerline'
+Bundle 'chriskempson/base16-vim'
+Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Twinside/vim-cuteErrorMarker'
 
 " :: Language support
@@ -77,6 +73,7 @@ Bundle 'tell-k/vim-autopep8'
 " :: Others
 "Bundle 'guns/xterm-color-table.vim'
 
+"------------------------------------------------------------------------------
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
@@ -101,13 +98,8 @@ filetype plugin indent on     " required!
 "---------------------------------------------------------------------------
 " General Settings
 "---------------------------------------------------------------------------
-
-set nocompatible	" not compatible with the old-fashion vi mode
-set bs=2		" allow backspacing over everything in insert mode
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set autoread		" auto read when file is changed from outside
-set colorcolumn=80
+" auto reload vimrc when editing it
+autocmd! bufwritepost .vimrc source ~/.vimrc
 
 filetype off          " necessary to make ftdetect work on Linux
 syntax on
@@ -116,30 +108,37 @@ filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
 
-" auto reload vimrc when editing it
-autocmd! bufwritepost .vimrc source ~/.vimrc
-
-
-syntax on		" syntax highlight
-set hlsearch		" search highlighting
-
 if has("gui_running")	" GUI color and font settings
-  if has("win32")
-    set guifont=Consolas:h14:cANSI
-  else
-    set guifont=Monaco\ 12
-  endif
-
   set background=dark
-  set t_Co=256          " 256 color mode
+  colorscheme base16-default
+  set guifont=Monaco\ 12
   set cursorline        " highlight current line
-  colors moria
-  highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
+
+  " Copy/paste
+  nmap <C-V> "+gP
+  imap <C-V> <ESC><C-V>a
+  vmap <C-C> "+y
 else
 " terminal color settings
-  colors aknow
+  set term=xterm-256color
+  colorscheme aknow
+
+  " Arror key
+  nmap OA k
+  nmap OB j
+  nmap OC l
+  nmap OD h
 endif
 
+set nocompatible	" not compatible with the old-fashion vi mode
+set bs=2		" allow backspacing over everything in insert mode
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set autoread		" auto read when file is changed from outside
+set colorcolumn=80
+
+set hlsearch		" search highlighting
+set t_Co=256            " 256 color mode
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
 set showmode		" Show current mode
@@ -169,31 +168,8 @@ set tm=500
    set shiftwidth=2
 
    au FileType Makefile set noexpandtab
-   autocmd FileType python setlocal shiftwidth=4 tabstop=4
+   autocmd FileType python, java setlocal shiftwidth=4 tabstop=4
 "}
-
-" status line {
-set laststatus=2
-set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \
-set statusline+=\ \ \ [%{&ff}/%Y]
-set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\
-set statusline+=%=%-10.(%l,%c%V%)\ %p%%/%L
-
-function! CurDir()
-    let curdir = substitute(getcwd(), $HOME, "~", "")
-    return curdir
-endfunction
-
-function! HasPaste()
-    if &paste
-        return '[PASTE]'
-    else
-        return ''
-    endif
-endfunction
-
-"}
-
 
 " C/C++ specific settings
 autocmd FileType c,cpp,cc,h  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,n0,f0,{0,}0,:s,=s,g0,h1s,p2,t0,+2s,(0,W2s,)20,*30
@@ -224,13 +200,6 @@ let g:mapleader=","
 "replace the current word in all opened buffers
 map <leader>r :call Replace()<CR>
 
-" open the error console
-map <leader>cc :botright cope<CR>
-" move to next error
-map <leader>] :cn<CR>
-" move to the prev error
-map <leader>[ :cp<CR>
-
 " --- move around splits {
 " move to and maximize the below split
 map <C-J> <C-W>j
@@ -240,19 +209,6 @@ map <C-K> <C-W>k
 nmap <c-h> <c-w>h
 " move to and maximize the right split
 nmap <c-l> <c-w>l
-" }
-
-" --- move around splits {
-" move to and maximize the below split
-" map <C-J> <C-W>j<C-W>_
-" move to and maximize the above split
-" map <C-K> <C-W>k<C-W>_
-" move to and maximize the left split
-" nmap <c-h> <c-w>h<c-w><bar>
-" move to and maximize the right split
-" nmap <c-l> <c-w>l<c-w><bar>
-" set wmw=0                     " set the min width of a window to 0 so we can maximize others
-" set wmh=0                     " set the min height of a window to 0 so we can maximize others
 " }
 
 " move around tabs. conflict with the original screen top/bottom
@@ -307,7 +263,7 @@ cmap cd. lcd %:p:h
 "---------------------------------------------------------------------------
 " Removes trailing spaces
 "---------------------------------------------------------------------------
-highlight TrailingWhitespaces ctermbg=green guibg=green
+highlight TrailingWhitespaces ctermbg=gray guibg=gray
 match TrailingWhitespaces /\s\+$/
 
 fun! <SID>StripTrailingWhitespaces()
@@ -397,36 +353,6 @@ endfun
 " PLUGIN SETTINGS
 "---------------------------------------------------------------------------
 
-" ------- vim-latex - many latex shortcuts and snippets {
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-" set shellslash
-" set grepprg=grep\ -nH\ $*
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-" let g:tex_flavor='latex'
-
-"}
-
-
-" --- AutoClose - Inserts matching bracket, paren, brace or quote
-" fixed the arrow key problems caused by AutoClose
-if !has("gui_running")
-   set term=xterm-256color
-   imap OA <ESC>ki
-   imap OB <ESC>ji
-   imap OC <ESC>li
-   imap OD <ESC>hi
-
-   nmap OA k
-   nmap OB j
-   nmap OC l
-   nmap OD h
-endif
-
-
 " --- Command-T
 let g:CommandTMaxHeight = 15
 
@@ -447,10 +373,6 @@ nnoremap <silent> <F5> :NERDTreeToggle<CR>
 nnoremap <silent> <F7> :TagbarToggle<CR>
 " set focus to TagBar when opening it
 let g:tagbar_autofocus = 1
-
-
-" --- PowerLine
-" let g:Powerline_symbols = 'fancy' " require fontpatcher
 
 
 " --- coffee-script
@@ -479,17 +401,25 @@ let g:gist_open_browser_after_post = 1
 let g:gist_browser_command = 'google-chrome %URL% &'
 let g:gist_clip_command = 'xclip -selection clipboard'
 
+
 " --- syntastic
+let g:syntastic_jshint_exec="jshint-gecko"
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers=['pyflakes', 'pylint']
 let g:syntastic_always_populate_loc_list = 1
 nnoremap <silent> <F4> :lwindow<CR>
+
 
 " --- tslime
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
 
+
 " --- autopep8
-let g:autopep8_disable_show_diff=1
+let g:autopep8_disable_show_diff = 1
+
+
+" --- airline
+"let g:airline_powerline_fonts = 1
 
