@@ -168,7 +168,7 @@ set tm=500
    set shiftwidth=2
 
    au FileType Makefile set noexpandtab
-   autocmd FileType python, java setlocal shiftwidth=4 tabstop=4
+   autocmd FileType python,java setlocal shiftwidth=4 tabstop=4
 "}
 
 " C/C++ specific settings
@@ -306,7 +306,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd FileType java set omnifunc=javacomplete#Complete
+"autocmd FileType java set omnifunc=javacomplete#Complete
 
 " use syntax complete if nothing else available
 if has("autocmd") && exists("+omnifunc")
