@@ -69,6 +69,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'sukima/xmledit'
 Bundle 'tell-k/vim-autopep8'
 Bundle 'scrooloose/syntastic'
+Bundle 'jcf/vim-latex'
 
 " :: Others
 "Bundle 'guns/xterm-color-table.vim'
@@ -364,8 +365,8 @@ hi link EasyMotionShade  Comment
 
 
 " --- NERDTree
-" toggle NERDTree with F5
-nnoremap <silent> <F5> :NERDTreeToggle<CR>
+" toggle NERDTree with F10
+nnoremap <silent> <F10> :NERDTreeToggle<CR>
 
 
 " --- TagBar
