@@ -63,12 +63,12 @@ Bundle 'scrooloose/nerdtree'
 "Bundle 'Twinside/vim-cuteErrorMarker'
 
 " :: Language support
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'mozfr/mozilla.vim'
 Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/syntastic'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'sukima/xmledit'
 Bundle 'tell-k/vim-autopep8'
+Bundle 'scrooloose/syntastic'
 
 " :: Others
 "Bundle 'guns/xterm-color-table.vim'
@@ -116,7 +116,7 @@ if has("gui_running")	" GUI color and font settings
 
   " Copy/paste
   nmap <C-V> "+gP
-  imap <C-V> <ESC><C-V>a
+  imap <C-V> <ESC>"+gpa
   vmap <C-C> "+y
 else
 " terminal color settings
