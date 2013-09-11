@@ -354,6 +354,27 @@ endfun
 " PLUGIN SETTINGS
 "---------------------------------------------------------------------------
 
+
+" ------- vim-latex - many latex shortcuts and snippets {
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
+set grepprg=grep\ -nH\ $*
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+"let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
+"let g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
+"let g:Tex_CompileRule_ps = 'dvips -Ppdf -o $*.ps $*.dvi'
+"let g:Tex_CompileRule_pdf = 'ps2pdf $*.ps'
+let g:Tex_CompileRule_pdf = 'latexmk.pl -pdf $*; latexmk.pl -c'
+let g:Tex_DefaultTargetFormat = 'pdf'
+"}
+
+
 " --- Command-T
 let g:CommandTMaxHeight = 15
 
