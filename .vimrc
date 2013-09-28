@@ -110,8 +110,9 @@ filetype plugin on    " Enable filetype-specific plugins
 
 
 if has("gui_running")	" GUI color and font settings
+  "highlight Normal guifg=white guibg=black
   set background=dark
-  colorscheme base16-default
+  colorscheme base16-pop
   set guifont=Monaco\ 12
   set cursorline        " highlight current line
 
@@ -370,7 +371,7 @@ let g:tex_flavor='latex'
 "let g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
 "let g:Tex_CompileRule_ps = 'dvips -Ppdf -o $*.ps $*.dvi'
 "let g:Tex_CompileRule_pdf = 'ps2pdf $*.ps'
-let g:Tex_CompileRule_pdf = 'latexmk.pl -pdf $*; latexmk.pl -c'
+let g:Tex_CompileRule_pdf = 'latexmk.pl -xelatex $*; latexmk.pl -c'
 let g:Tex_DefaultTargetFormat = 'pdf'
 "}
 
