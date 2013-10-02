@@ -111,7 +111,7 @@ filetype plugin on    " Enable filetype-specific plugins
 
 if has("gui_running")	" GUI color and font settings
   set background=dark
-  colorscheme base16-default
+  colorscheme base16-pop
   set guifont=Monaco\ 12
   set cursorline        " highlight current line
 
@@ -271,7 +271,7 @@ fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
     %s/\s\+$//e
-    %s/^$\n\+\%$//ge
+    %s/$\n\+\%$//ge
     call cursor(l, c)
 endfun
 
@@ -444,4 +444,3 @@ let g:autopep8_disable_show_diff = 1
 
 " --- airline
 "let g:airline_powerline_fonts = 1
-
