@@ -53,6 +53,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'scrooloose/nerdcommenter'
 "Bundle 'honza/vim-snippets'
 "Bundle 'mattn/zencoding-vim'
+Bundle 'tpope/vim-abolish'
 
 " :: Decorator
 Bundle 'chriskempson/base16-vim'
