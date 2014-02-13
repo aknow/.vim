@@ -54,9 +54,11 @@ Bundle 'scrooloose/nerdcommenter'
 "Bundle 'honza/vim-snippets'
 "Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-commentary'
 
 " :: Decorator
 Bundle 'chriskempson/base16-vim'
+Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'majutsushi/tagbar'
@@ -283,6 +285,21 @@ autocmd FilterWritePre *.c,*.cpp,*.h,*.js,*.py :call <SID>StripTrailingWhitespac
 autocmd BufWritePre    *.c,*.cpp,*.h,*.js,*.py :call <SID>StripTrailingWhitespaces()
 nmap <F2> :call <SID>StripTrailingWhitespaces()<CR>
 
+function! Strip(input_string)
+  return substitute(a:input_string, '^\s*\(.\{-}\)\s*\n', '\1', '')
+endfunction
+
+function! GenUUID()
+  return Strip(system('uuidgen'))
+endfunction
+
+
+"---------------------------------------------------------------------------
+" Update uuid
+"---------------------------------------------------------------------------
+noremap <F5> m'T(ct)<C-R>=GenUUID()<C-M><esc>``
+imap <F5> <C-R>=GenUUID()<C-M>
+
 
 "---------------------------------------------------------------------------
 " PROGRAMMING SHORTCUTS
@@ -388,8 +405,8 @@ hi link EasyMotionShade  Comment
 
 
 " --- NERDTree
-" toggle NERDTree with F10
-nnoremap <silent> <F10> :NERDTreeToggle<CR>
+" toggle NERDTree with F9
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
 
 
 " --- TagBar
