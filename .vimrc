@@ -285,6 +285,11 @@ autocmd FilterWritePre *.c,*.cpp,*.h,*.js,*.py :call <SID>StripTrailingWhitespac
 autocmd BufWritePre    *.c,*.cpp,*.h,*.js,*.py :call <SID>StripTrailingWhitespaces()
 nmap <F2> :call <SID>StripTrailingWhitespaces()<CR>
 
+
+"---------------------------------------------------------------------------
+" Update uuid
+"---------------------------------------------------------------------------
+
 function! Strip(input_string)
   return substitute(a:input_string, '^\s*\(.\{-}\)\s*\n', '\1', '')
 endfunction
@@ -293,10 +298,6 @@ function! GenUUID()
   return Strip(system('uuidgen'))
 endfunction
 
-
-"---------------------------------------------------------------------------
-" Update uuid
-"---------------------------------------------------------------------------
 noremap <F5> m'T(ct)<C-R>=GenUUID()<C-M><esc>``
 imap <F5> <C-R>=GenUUID()<C-M>
 
