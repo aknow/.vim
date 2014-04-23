@@ -167,6 +167,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" set filetype
+au BufNewFile,BufRead *.webidl set filetype=idl
+
 " TAB setting{
    set expandtab        "replace <TAB> with spaces
    set softtabstop=2
