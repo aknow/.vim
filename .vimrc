@@ -1,7 +1,6 @@
 " VIM setting.
 " Szu-Yu Chen (Aknow)
 
-" Not support for win32
 
 "------------------------------------------------------------------------------
 " vundle setting.
@@ -9,94 +8,91 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+
 " http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-" Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
   echo "Installing Vundle.."
   echo ""
   silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   let iCanHazVundle=0
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" :: Basic editing or moving
-Bundle 'Lokaltog/vim-easymotion'
-" Produce increasing/decreasing columns of numbers, dates, or daynames
-Bundle 'VisIncr'
-Bundle 'YankRing.vim'
-Bundle 'indent-motion'
-" extended % matching for HTML, LaTeX, and many other languages
-Bundle 'matchit.zip'
-Bundle 'tpope/vim-surround'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-unimpaired'
-"Bundle 'tomtom/tlib_vim'
-"Bundle 'wincent/Command-T'
-Bundle 'Raimondi/delimitMate'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-" :: Coding
-Bundle 'LnL7/vim-tslime'
-Bundle 'SirVer/ultisnips'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'autoload_cscope.vim'
-Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'scrooloose/nerdcommenter'
-"Bundle 'honza/vim-snippets'
-"Bundle 'mattn/zencoding-vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-commentary'
+" Language
+Plugin 'pangloss/vim-javascript'
+Plugin 'mattn/zencoding-vim'
+Plugin 'mozfr/mozilla.vim'
+Plugin 'vim-latex/vim-latex'
 
-" :: Decorator
-Bundle 'chriskempson/base16-vim'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'bling/vim-airline'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'Twinside/vim-cuteErrorMarker'
+" Completion
+Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
-" :: Language support
-Bundle 'mozfr/mozilla.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'sukima/xmledit'
-Bundle 'tell-k/vim-autopep8'
-Bundle 'scrooloose/syntastic'
-Bundle 'jcf/vim-latex'
+" Code display
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tomasr/molokai'
 
-" :: Others
-"Bundle 'guns/xterm-color-table.vim'
+" Integrations
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'mileszs/ack.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
 
-"------------------------------------------------------------------------------
+" Interface
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'bling/vim-airline'
+
+" Commands
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
+Plugin 'matchit.zip'
+
+" Others
+Plugin 'jgdavey/tslime.vim'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
   echo ""
-  :BundleInstall
+  :PluginInstall
   :qall
 endif
-" Setting up Vundle - the vim plugin bundler end
-
-filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
 
 
 "---------------------------------------------------------------------------
@@ -111,11 +107,10 @@ filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
-
 if has("gui_running")	" GUI color and font settings
   "highlight Normal guifg=white guibg=black
   set background=dark
-  colorscheme base16-pop
+  colorscheme molokai
   set guifont=Monaco\ 12
   set cursorline        " highlight current line
 
@@ -420,10 +415,6 @@ nnoremap <silent> <F7> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 
-" --- coffee-script
-au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile coffee scripts on write
-
-
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1
 
@@ -459,11 +450,3 @@ nnoremap <silent> <F4> :lwindow<CR>
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
-
-
-" --- autopep8
-let g:autopep8_disable_show_diff = 1
-
-
-" --- airline
-"let g:airline_powerline_fonts = 1
