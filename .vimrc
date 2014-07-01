@@ -436,7 +436,7 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 
 
 " --- syntastic
-let g:syntastic_jshint_exec="jshint-gecko"
+let g:syntastic_javascript_jshint_exec="jshint-gecko"
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers=['pyflakes', 'pylint']
 let g:syntastic_always_populate_loc_list = 1
