@@ -3,13 +3,9 @@
 
 
 "------------------------------------------------------------------------------
-" vundle setting.
-"------------------------------------------------------------------------------
-set nocompatible               " be iMproved
-filetype off                   " required!
-
-
+" Install vundle automatically
 " http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+"------------------------------------------------------------------------------
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
@@ -21,6 +17,12 @@ if !filereadable(vundle_readme)
 endif
 
 
+"------------------------------------------------------------------------------
+" Vundle setting.
+"------------------------------------------------------------------------------
+set nocompatible               " be iMproved
+filetype off                   " required!
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -30,7 +32,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Language
 Plugin 'pangloss/vim-javascript'
-Plugin 'mattn/zencoding-vim'
 Plugin 'mozfr/mozilla.vim'
 Plugin 'vim-latex/vim-latex'
 
@@ -70,7 +71,6 @@ Plugin 'matchit.zip'
 " Others
 Plugin 'jgdavey/tslime.vim'
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -87,6 +87,9 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
+"------------------------------------------------------------------------------
+" Install plugins automatically
+"------------------------------------------------------------------------------
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
   echo ""
@@ -107,10 +110,10 @@ filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
+colorscheme molokai
+set background=dark
+
 if has("gui_running")	" GUI color and font settings
-  "highlight Normal guifg=white guibg=black
-  set background=dark
-  colorscheme molokai
   set guifont=Monaco\ 12
   set cursorline        " highlight current line
 
@@ -121,7 +124,6 @@ if has("gui_running")	" GUI color and font settings
 else
 " terminal color settings
   set term=xterm-256color
-  colorscheme aknow
 
   " Arror key
   nmap OA k
@@ -287,7 +289,6 @@ nmap <F2> :call <SID>StripTrailingWhitespaces()<CR>
 "---------------------------------------------------------------------------
 " Update uuid
 "---------------------------------------------------------------------------
-
 function! Strip(input_string)
   return substitute(a:input_string, '^\s*\(.\{-}\)\s*\n', '\1', '')
 endfunction
@@ -391,10 +392,6 @@ let g:tex_flavor='latex'
 let g:Tex_CompileRule_pdf = 'latexmk.pl -xelatex $*; latexmk.pl -c'
 let g:Tex_DefaultTargetFormat = 'pdf'
 "}
-
-
-" --- Command-T
-let g:CommandTMaxHeight = 15
 
 
 " --- EasyMotion
