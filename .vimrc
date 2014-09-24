@@ -166,6 +166,8 @@ set tm=500
 
 " set filetype
 au BufNewFile,BufRead *.webidl set filetype=idl
+au BufNewFile,BufRead *.ipdl set filetype=idl
+au BufNewFile,BufRead *.ipdlh set filetype=idl
 
 " TAB setting{
    set expandtab        "replace <TAB> with spaces
@@ -436,7 +438,7 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 
 
 " --- syntastic
-let g:syntastic_javascript_jshint_exec="jshint-gecko"
+" let g:syntastic_javascript_jshint_exec="jshint-gecko"
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers=['pyflakes', 'pylint']
 let g:syntastic_always_populate_loc_list = 1
@@ -447,3 +449,14 @@ nnoremap <silent> <F4> :lwindow<CR>
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
+
+" --- ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+let g:ctrlp_working_path_mode = 'ra'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
